@@ -64,3 +64,23 @@ test('a user sees the empty inbox state', async ({ page }) => {
   await expect(page.getByText('No feedback yet')).toBeVisible()
   await expect(page.getByRole('link', { name: 'Add feedback' })).toBeVisible()
 })
+
+test('mobile navigation stays available and switches sections', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/')
+
+  const mobileNavigation = page.getByRole('navigation', {
+    name: 'Mobile navigation',
+  })
+  await expect(mobileNavigation).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Add feedback' })).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Add feedback' })).toHaveCount(
+    1,
+  )
+  await mobileNavigation.getByRole('link', { name: 'Feedback' }).click()
+  await expect(
+    page.getByRole('heading', { name: 'Feedback inbox', level: 1 }),
+  ).toBeVisible()
+})

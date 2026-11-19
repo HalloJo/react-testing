@@ -123,9 +123,11 @@ export function AppShell() {
       </aside>
 
       <div className="lg:pl-64">
-        <header className="sticky top-0 z-20 flex h-[76px] items-center justify-between border-b border-slate-200/80 bg-white/90 px-5 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/90 sm:px-8">
+        <header className="sticky top-0 z-20 flex h-[76px] items-center justify-between border-b border-slate-200/80 bg-white/90 px-4 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/90 sm:px-8">
           <div>
-            <p className="text-xs text-slate-400">Workspace / Product team</p>
+            <p className="hidden text-xs text-slate-400 sm:block">
+              Workspace / Product team
+            </p>
             <h1 className="mt-0.5 text-sm font-semibold text-slate-800 dark:text-slate-100">
               {pageTitle}
             </h1>
@@ -145,44 +147,58 @@ export function AppShell() {
                 <Moon aria-hidden="true" className="size-[18px]" />
               )}
             </button>
-            <Button
-              onClick={() => navigate('/feedback/new')}
-              icon={<Plus aria-hidden="true" className="size-4" />}
-              size="sm"
-              className="hidden sm:inline-flex"
-            >
-              Add feedback
-            </Button>
-            <Button
-              onClick={() => navigate('/feedback/new')}
-              aria-label="Add feedback"
-              icon={<Plus aria-hidden="true" className="size-4" />}
-              size="sm"
-              className="sm:hidden"
-            />
+            <div className="hidden sm:block">
+              <Button
+                onClick={() => navigate('/feedback/new')}
+                icon={<Plus aria-hidden="true" className="size-4" />}
+                size="sm"
+              >
+                Add feedback
+              </Button>
+            </div>
+            <div className="sm:hidden">
+              <Button
+                onClick={() => navigate('/feedback/new')}
+                aria-label="Add feedback"
+                icon={<Plus aria-hidden="true" className="size-4" />}
+                size="sm"
+                className="size-10 min-h-10 px-0"
+              />
+            </div>
           </div>
         </header>
 
-        <main className="mx-auto max-w-[1440px] px-5 py-7 sm:px-8 sm:py-9">
-          <nav
-            aria-label="Mobile navigation"
-            className="mb-6 flex gap-2 lg:hidden"
-          >
-            {navigation.map(({ label, to }) => (
+        <main className="mx-auto max-w-[1440px] px-5 py-7 pb-28 sm:px-8 sm:py-9 sm:pb-28 lg:pb-9">
+          <Outlet />
+        </main>
+        <nav
+          aria-label="Mobile navigation"
+          className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200/80 bg-white/95 px-5 pt-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] shadow-[0_-8px_24px_rgba(27,39,66,0.06)] backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/95 dark:shadow-none lg:hidden"
+        >
+          <div className="mx-auto flex max-w-md items-center justify-around gap-3">
+            {navigation.map(({ label, to, icon: Icon }) => (
               <NavLink
                 key={to}
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  `rounded-xl px-3 py-2 text-xs font-semibold ${isActive ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-400/10 dark:text-indigo-300' : 'bg-white text-slate-500 dark:bg-slate-900 dark:text-slate-400'}`
+                  `flex min-h-14 flex-1 flex-col items-center justify-center gap-1 rounded-xl text-[10px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${isActive ? 'text-indigo-700 dark:text-indigo-300' : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100'}`
                 }
               >
-                {label}
+                {({ isActive }) => (
+                  <>
+                    <span
+                      className={`flex size-8 items-center justify-center rounded-full transition-colors ${isActive ? 'bg-indigo-50 dark:bg-indigo-400/10' : ''}`}
+                    >
+                      <Icon aria-hidden="true" className="size-[18px]" />
+                    </span>
+                    {label}
+                  </>
+                )}
               </NavLink>
             ))}
-          </nav>
-          <Outlet />
-        </main>
+          </div>
+        </nav>
         <footer className="mx-auto flex max-w-[1440px] items-center justify-between px-5 pb-8 text-[11px] text-slate-400 sm:px-8">
           <span>Feedback Pulse · Built for better product decisions</span>
           {isNewFeedback && (
