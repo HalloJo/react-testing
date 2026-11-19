@@ -45,7 +45,7 @@ export function AppShell() {
   return (
     <div className="min-h-screen bg-[#f6f7fb] text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100">
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-slate-200/80 bg-white dark:border-slate-800 dark:bg-slate-900 lg:flex">
-        <div className="flex h-[76px] items-center gap-3 border-b border-slate-100 px-6 dark:border-slate-800">
+        <div className="flex h-19 items-center gap-3 border-b border-slate-100 px-6 dark:border-slate-800">
           <div className="flex size-9 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm shadow-indigo-300/50">
             <BarChart3 aria-hidden="true" className="size-5" />
           </div>
@@ -76,7 +76,7 @@ export function AppShell() {
                   `flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition ${isActive ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-400/10 dark:text-indigo-300' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100'}`
                 }
               >
-                <Icon aria-hidden="true" className="size-[18px]" />
+                <Icon aria-hidden="true" className="size-4.5" />
                 {label}
                 {label === 'Feedback' && (
                   <span className="ml-auto rounded-full bg-slate-100 px-2 py-0.5 text-[10px] text-slate-500 dark:bg-slate-800 dark:text-slate-400">
@@ -106,7 +106,7 @@ export function AppShell() {
             </a>
           </div>
           <div className="mt-4 flex items-center gap-3 rounded-xl px-2 py-2">
-            <div className="flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 text-xs font-bold text-white">
+            <div className="flex size-9 items-center justify-center rounded-full bg-linear-to-br from-violet-500 to-indigo-600 text-xs font-bold text-white">
               JM
             </div>
             <div className="min-w-0 flex-1">
@@ -123,7 +123,7 @@ export function AppShell() {
       </aside>
 
       <div className="lg:pl-64">
-        <header className="sticky top-0 z-20 flex h-[76px] items-center justify-between border-b border-slate-200/80 bg-white/90 px-4 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/90 sm:px-8">
+        <header className="sticky top-0 z-20 flex h-19 items-center justify-between border-b border-slate-200/80 bg-white/90 px-4 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/90 sm:px-8">
           <div>
             <p className="hidden text-xs text-slate-400 sm:block">
               Workspace / Product team
@@ -142,9 +142,9 @@ export function AppShell() {
               className="flex size-10 items-center justify-center rounded-xl text-slate-500 transition hover:bg-slate-100 hover:text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100"
             >
               {isDark ? (
-                <Sun aria-hidden="true" className="size-[18px]" />
+                <Sun aria-hidden="true" className="size-4.5" />
               ) : (
-                <Moon aria-hidden="true" className="size-[18px]" />
+                <Moon aria-hidden="true" className="size-4.5" />
               )}
             </button>
             <div className="hidden sm:block">
@@ -168,7 +168,7 @@ export function AppShell() {
           </div>
         </header>
 
-        <main className="mx-auto max-w-[1440px] px-5 py-7 pb-28 sm:px-8 sm:py-9 sm:pb-28 lg:pb-9">
+        <main className="mx-auto max-w-360 px-5 py-7 pb-28 sm:px-8 sm:py-9 sm:pb-28 lg:pb-9">
           <Outlet />
         </main>
         <nav
@@ -190,7 +190,7 @@ export function AppShell() {
                     <span
                       className={`flex size-8 items-center justify-center rounded-full transition-colors ${isActive ? 'bg-indigo-50 dark:bg-indigo-400/10' : ''}`}
                     >
-                      <Icon aria-hidden="true" className="size-[18px]" />
+                      <Icon aria-hidden="true" className="size-4.5" />
                     </span>
                     {label}
                   </>
@@ -199,7 +199,7 @@ export function AppShell() {
             ))}
           </div>
         </nav>
-        <footer className="mx-auto flex max-w-[1440px] items-center justify-between px-5 pb-8 text-[11px] text-slate-400 sm:px-8">
+        <footer className="mx-auto flex max-w-360 items-center justify-between px-5 pb-8 text-[11px] text-slate-400 sm:px-8">
           <span>Feedback Pulse · Built for better product decisions</span>
           {isNewFeedback && (
             <span className="hidden items-center gap-1 sm:flex">

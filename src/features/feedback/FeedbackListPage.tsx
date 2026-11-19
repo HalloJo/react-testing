@@ -179,7 +179,7 @@ export function FeedbackListPage() {
             </span>
           </div>
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[700px] text-left">
+            <table className="w-full min-w-175 text-left">
               <thead>
                 <tr className="border-b border-slate-100 bg-slate-50/70 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400 dark:border-slate-800 dark:bg-slate-950/30">
                   <th scope="col" className="px-6 py-3">
@@ -205,7 +205,7 @@ export function FeedbackListPage() {
                     key={item.id}
                     className="group transition hover:bg-slate-50/70 dark:hover:bg-slate-800/50"
                   >
-                    <td className="max-w-[360px] px-6 py-4">
+                    <td className="max-w-90 px-6 py-4">
                       <Link
                         to={`/feedback/${item.id}`}
                         className="block truncate text-sm font-semibold text-slate-800 group-hover:text-indigo-700 dark:text-slate-100 dark:group-hover:text-indigo-300"
@@ -223,7 +223,7 @@ export function FeedbackListPage() {
                       <Badge tone={item.priority}>{item.priority}</Badge>
                     </td>
                     <td className="px-4 py-4">
-                      <div className="flex max-w-[200px] flex-wrap gap-1.5">
+                      <div className="flex max-w-50 flex-wrap gap-1.5">
                         {item.tags.slice(0, 2).map((tag) => (
                           <span
                             key={tag}

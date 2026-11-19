@@ -174,7 +174,7 @@ export function DashboardPage() {
               <span
                 className={`flex size-10 items-center justify-center rounded-xl ${tone === 'indigo' ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-400/10 dark:text-indigo-300' : tone === 'emerald' ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-400/10 dark:text-emerald-300' : tone === 'rose' ? 'bg-rose-50 text-rose-600 dark:bg-rose-400/10 dark:text-rose-300' : 'bg-amber-50 text-amber-600 dark:bg-amber-400/10 dark:text-amber-300'}`}
               >
-                <Icon aria-hidden="true" className="size-[18px]" />
+                <Icon aria-hidden="true" className="size-4.5" />
               </span>
             </div>
             <p className="mt-4 border-t border-slate-100 pt-3 text-xs text-slate-400 dark:border-slate-800">
@@ -193,7 +193,7 @@ export function DashboardPage() {
           <div
             role="img"
             aria-label="Feedback by sentiment chart"
-            className="h-[270px] w-full"
+            className="h-67.5 w-full"
           >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
@@ -237,7 +237,7 @@ export function DashboardPage() {
             <div
               role="img"
               aria-label="Feedback by priority chart"
-              className="h-[205px] w-full max-w-[240px]"
+              className="h-51.25 w-full max-w-60"
             >
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
